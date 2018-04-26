@@ -20,6 +20,7 @@ class AutoresController extends AppController
      */
     public function index()
     {
+      //  $this->paginate = [ 'contain' => ['Livros'] ];  // I added this line trying to show up the books of each author
         $autores = $this->paginate($this->Autores);
 
         $this->set(compact('autores'));
@@ -34,9 +35,7 @@ class AutoresController extends AppController
      */
     public function view($id = null)
     {
-        $autore = $this->Autores->get($id, [
-            'contain' => []
-        ]);
+        $autore = $this->Autores->get($id, [ 'contain' => ['Livros'] ]); // before it was not written 'Livros' inside the brackets
 
         $this->set('autore', $autore);
     }
@@ -52,12 +51,13 @@ class AutoresController extends AppController
         if ($this->request->is('post')) {
             $autore = $this->Autores->patchEntity($autore, $this->request->getData());
             if ($this->Autores->save($autore)) {
-                $this->Flash->success(__('The autore has been saved.'));
+                $this->Flash->success(__('O Autor foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The autore could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Autor não pôde ser salvo. Por favor, tente novamente.'));
         }
+       // $livros = $this->Autores->Livros->find('list', ['limit' => 200]);
         $this->set(compact('autore'));
     }
 
@@ -76,11 +76,11 @@ class AutoresController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $autore = $this->Autores->patchEntity($autore, $this->request->getData());
             if ($this->Autores->save($autore)) {
-                $this->Flash->success(__('The autore has been saved.'));
+                $this->Flash->success(__('O autor foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The autore could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Autor não pôde ser salvo. Por favor, tente novamente.'));
         }
         $this->set(compact('autore'));
     }
@@ -97,9 +97,9 @@ class AutoresController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $autore = $this->Autores->get($id);
         if ($this->Autores->delete($autore)) {
-            $this->Flash->success(__('The autore has been deleted.'));
+            $this->Flash->success(__('O Autor foi excluído com sucesso.'));
         } else {
-            $this->Flash->error(__('The autore could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O Autor não pôde ser excluído. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

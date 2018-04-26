@@ -6,10 +6,16 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Genero'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Livro'), ['controller' => 'Livros', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Ações') ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['action' => 'add']) ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Livro'), ['controller' => 'Livros', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="generos index large-9 medium-8 columns content">
@@ -21,7 +27,7 @@
                 <th scope="col"><?= $this->Paginator->sort('descricao') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
+                <th scope="col" class="actions"><?= __('Ações') ?></th>
             </tr>
         </thead>
         <tbody>
@@ -32,9 +38,9 @@
                 <td><?= h($genero->created) ?></td>
                 <td><?= h($genero->modified) ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $genero->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $genero->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $genero->id], ['confirm' => __('Are you sure you want to delete # {0}?', $genero->id)]) ?>
+                    <?= $this->Html->link(__('Ver'), ['action' => 'view', $genero->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['action' => 'edit', $genero->id]) ?>
+                    <?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $genero->id], ['confirm' => __('Você tem certeza que deseja excluir o gênero {0} - {1}?', $genero->id, $genero->descricao)]) ?>
                 </td>
             </tr>
             <?php endforeach; ?>
@@ -42,12 +48,12 @@
     </table>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('primeiro')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('próximo') . ' >') ?>
+            <?= $this->Paginator->last(__('último') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
+        <p><?= $this->Paginator->counter(['format' => __('Página {{page}} de {{pages}}, exibindo {{current}} registro(s) de um total de {{count}}')]) ?></p>
     </div>
 </div>

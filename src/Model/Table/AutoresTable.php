@@ -37,6 +37,10 @@ class AutoresTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->hasMany('Livros', [
+            'foreignKey' => 'autor_id'
+        ]);
     }
 
     /**

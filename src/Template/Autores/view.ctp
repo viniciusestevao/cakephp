@@ -6,31 +6,72 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Autore'), ['action' => 'edit', $autore->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Autore'), ['action' => 'delete', $autore->id], ['confirm' => __('Are you sure you want to delete # {0}?', $autore->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Autores'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Autore'), ['action' => 'add']) ?> </li>
+        <li class="heading"><?= __('Ações') ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Autores'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Autor'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Editar Autor'), ['action' => 'edit', $autore->id]) ?> </li>
+        <li><?= $this->Form->postLink(__('Excluir Autor'), ['action' => 'delete', $autore->id], ['confirm' => __('Você tem certeza que deseja excluir autor {0} - {1}?', $autore->id, $autore->nome)]) ?> </li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Livro'), ['controller' => 'Livros', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="autores view large-9 medium-8 columns content">
-    <h3><?= h($autore->id) ?></h3>
+    <h3><?= h($autore->nome) ?></h3>
     <table class="vertical-table">
+        <tr>
+            <th scope="row"><?= __('Código') ?></th>
+            <td><?= $this->Number->format($autore->id) ?></td>
+        </tr>
         <tr>
             <th scope="row"><?= __('Nome') ?></th>
             <td><?= h($autore->nome) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($autore->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
+            <th scope="row"><?= __('Criado em') ?></th>
             <td><?= h($autore->created) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Modified') ?></th>
+            <th scope="row"><?= __('Modificado em') ?></th>
             <td><?= h($autore->modified) ?></td>
         </tr>
     </table>
+    <div class="related">
+        <h4><?= __('Livros de {0}', $autore->nome) ?></h4>
+        <?php if (!empty($autore->livros)): ?>
+        <table cellpadding="0" cellspacing="0">
+            <tr>
+                <th scope="col"><?= __('id') ?></th>
+                <th scope="col"><?= __('titulo') ?></th>
+                <th scope="col"><?= __('descricao') ?></th>
+                <th scope="col"><?= __('quantidade') ?></th>
+                <th scope="col"><?= __('isbn') ?></th>
+                <th scope="col"><?= __('created') ?></th>
+                <th scope="col"><?= __('modified') ?></th>
+                <th scope="col" class="actions"><?= __('Ações') ?></th>
+            </tr>
+            <?php foreach ($autore->livros as $livro): ?>
+            <tr>
+                <td><?= h($livro->id) ?></td>
+                <td><?= h($livro->titulo) ?></td>
+                <td><?= h($livro->descricao) ?></td>
+                <td><?= h($livro->quantidade) ?></td>
+                <td><?= h($livro->isbn) ?></td>
+                <td><?= h($livro->created) ?></td>
+                <td><?= h($livro->modified) ?></td>
+                <td class="actions">
+                    <?= $this->Html->link(__('Ver'), ['controller' => 'Livros', 'action' => 'view', $livro->id]) ?>
+                    <?= $this->Html->link(__('Editar'), ['controller' => 'Livros', 'action' => 'edit', $livro->id]) ?>
+                    <?= $this->Form->postLink(__('Excluir'), ['controller' => 'Livros', 'action' => 'delete', $livro->id], ['confirm' => __('Você tem certeza que deseja excluir o livro {0} - {1}?', $livro->id, $livro->titulo)]) ?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
+        </table>
+        <?php endif; ?>
+    </div>
+    
 </div>

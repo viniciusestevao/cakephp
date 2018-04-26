@@ -20,9 +20,7 @@ class LivrosGenerosController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Livros', 'Generos']
-        ];
+        $this->paginate = ['contain' => ['Livros', 'Generos']];
         $livrosGeneros = $this->paginate($this->LivrosGeneros);
 
         $this->set(compact('livrosGeneros'));
@@ -37,9 +35,7 @@ class LivrosGenerosController extends AppController
      */
     public function view($id = null)
     {
-        $livrosGenero = $this->LivrosGeneros->get($id, [
-            'contain' => ['Livros', 'Generos']
-        ]);
+        $livrosGenero = $this->LivrosGeneros->get($id, ['contain' => ['Livros', 'Generos']]);
 
         $this->set('livrosGenero', $livrosGenero);
     }
@@ -55,11 +51,11 @@ class LivrosGenerosController extends AppController
         if ($this->request->is('post')) {
             $livrosGenero = $this->LivrosGeneros->patchEntity($livrosGenero, $this->request->getData());
             if ($this->LivrosGeneros->save($livrosGenero)) {
-                $this->Flash->success(__('The livros genero has been saved.'));
+                $this->Flash->success(__('O conjunto Livro-Gênero foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The livros genero could not be saved. Please, try again.'));
+            $this->Flash->error(__('O conjunto Livro-Gênero não pôde ser salvo. Por favor, tente novamente.'));
         }
         $livros = $this->LivrosGeneros->Livros->find('list', ['limit' => 200]);
         $generos = $this->LivrosGeneros->Generos->find('list', ['limit' => 200]);
@@ -81,11 +77,11 @@ class LivrosGenerosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $livrosGenero = $this->LivrosGeneros->patchEntity($livrosGenero, $this->request->getData());
             if ($this->LivrosGeneros->save($livrosGenero)) {
-                $this->Flash->success(__('The livros genero has been saved.'));
+                $this->Flash->success(__('O conjunto Livro-Gênero foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The livros genero could not be saved. Please, try again.'));
+            $this->Flash->error(__('O conjunto Livro-Gênero não pôde ser salvo. Por favor, tente novamente.'));
         }
         $livros = $this->LivrosGeneros->Livros->find('list', ['limit' => 200]);
         $generos = $this->LivrosGeneros->Generos->find('list', ['limit' => 200]);
@@ -104,9 +100,9 @@ class LivrosGenerosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $livrosGenero = $this->LivrosGeneros->get($id);
         if ($this->LivrosGeneros->delete($livrosGenero)) {
-            $this->Flash->success(__('The livros genero has been deleted.'));
+            $this->Flash->success(__('O conjunto Livro-Gênero foi excluído com sucesso.'));
         } else {
-            $this->Flash->error(__('The livros genero could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O conjunto Livro-Gênero não pôde ser excluído. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);

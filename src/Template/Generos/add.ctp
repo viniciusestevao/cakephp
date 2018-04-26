@@ -6,21 +6,27 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Generos'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Livro'), ['controller' => 'Livros', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Ações') ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['action' => 'add']) ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
+        <li><br></li>
+        <li><?= $this->Html->link(__('Consultar Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Novo Livro'), ['controller' => 'Livros', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="generos form large-9 medium-8 columns content">
     <?= $this->Form->create($genero) ?>
     <fieldset>
-        <legend><?= __('Add Genero') ?></legend>
+        <legend><?= __('Novo Gênero Literário') ?></legend>
         <?php
             echo $this->Form->control('descricao');
             echo $this->Form->control('livros._ids', ['options' => $livros]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

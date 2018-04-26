@@ -6,24 +6,23 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $livro->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $livro->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Livros'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Autore'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Generos'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Genero'), ['controller' => 'Generos', 'action' => 'add']) ?></li>
+        <li class="heading"><?= __('Ações') ?></li>
+        <li><br></li>   
+        <li><?= $this->Html->link(__('Consultar Livros'), ['action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Novo Livro'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Form->postLink(__('Excluir Livro'), ['action' => 'delete', $livro->id], ['confirm' => __('Você tem certeza que deseja excluir o livro {0} - {1}?', $livro->id, $livro->titulo)]) ?> </li>
+        <li><br></li>   
+        <li><?= $this->Html->link(__('Consultar Autores'), ['controller' => 'Autores', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Novo Autor'), ['controller' => 'Autores', 'action' => 'add']) ?> </li>
+        <li><br></li>   
+        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['controller' => 'Generos', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="livros form large-9 medium-8 columns content">
     <?= $this->Form->create($livro) ?>
     <fieldset>
-        <legend><?= __('Edit Livro') ?></legend>
+        <legend><?= __('Editar Livro') ?></legend>
         <?php
             echo $this->Form->control('autor_id', ['options' => $autores]);
             echo $this->Form->control('titulo');
@@ -33,6 +32,6 @@
             echo $this->Form->control('generos._ids', ['options' => $generos]);
         ?>
     </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
+    <?= $this->Form->button(__('Salvar')) ?>
     <?= $this->Form->end() ?>
 </div>

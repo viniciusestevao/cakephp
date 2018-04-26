@@ -52,11 +52,11 @@ class GenerosController extends AppController
         if ($this->request->is('post')) {
             $genero = $this->Generos->patchEntity($genero, $this->request->getData());
             if ($this->Generos->save($genero)) {
-                $this->Flash->success(__('The genero has been saved.'));
+                $this->Flash->success(__('O Gênero Literário foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The genero could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Gênero Literário não pôde ser salvo. Por favor, tente novamente.'));
         }
         $livros = $this->Generos->Livros->find('list', ['limit' => 200]);
         $this->set(compact('genero', 'livros'));
@@ -77,11 +77,11 @@ class GenerosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $genero = $this->Generos->patchEntity($genero, $this->request->getData());
             if ($this->Generos->save($genero)) {
-                $this->Flash->success(__('The genero has been saved.'));
+                $this->Flash->success(__('O Gênero Literário foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The genero could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Gênero Literário não pôde ser salvo. Por favor, tente novamente.'));
         }
         $livros = $this->Generos->Livros->find('list', ['limit' => 200]);
         $this->set(compact('genero', 'livros'));
@@ -99,9 +99,9 @@ class GenerosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $genero = $this->Generos->get($id);
         if ($this->Generos->delete($genero)) {
-            $this->Flash->success(__('The genero has been deleted.'));
+            $this->Flash->success(__('O Gênero Literário foi excluído com sucesso.'));
         } else {
-            $this->Flash->error(__('The genero could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O Gênero Literário não pôde ser excluído. Por favor, tente novamente..'));
         }
 
         return $this->redirect(['action' => 'index']);

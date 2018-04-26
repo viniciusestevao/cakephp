@@ -80,6 +80,7 @@ class LivrosTable extends Table
 
         $validator
             ->integer('isbn')
+            ->maxLength('isbn', 13)
             ->allowEmpty('isbn');
 
         return $validator;

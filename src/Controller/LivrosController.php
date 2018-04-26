@@ -20,9 +20,7 @@ class LivrosController extends AppController
      */
     public function index()
     {
-        $this->paginate = [
-            'contain' => ['Autores']
-        ];
+        $this->paginate = [ 'contain' => ['Autores'] ];
         $livros = $this->paginate($this->Livros);
 
         $this->set(compact('livros'));
@@ -37,9 +35,7 @@ class LivrosController extends AppController
      */
     public function view($id = null)
     {
-        $livro = $this->Livros->get($id, [
-            'contain' => ['Autores', 'Generos']
-        ]);
+        $livro = $this->Livros->get($id, ['contain' => ['Autores', 'Generos']]);
 
         $this->set('livro', $livro);
     }
@@ -55,11 +51,11 @@ class LivrosController extends AppController
         if ($this->request->is('post')) {
             $livro = $this->Livros->patchEntity($livro, $this->request->getData());
             if ($this->Livros->save($livro)) {
-                $this->Flash->success(__('The livro has been saved.'));
+                $this->Flash->success(__('O Livro foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The livro could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Livro não pôde ser salvo. Por favor, tente novamente.'));
         }
         $autores = $this->Livros->Autores->find('list', ['limit' => 200]);
         $generos = $this->Livros->Generos->find('list', ['limit' => 200]);
@@ -81,11 +77,11 @@ class LivrosController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $livro = $this->Livros->patchEntity($livro, $this->request->getData());
             if ($this->Livros->save($livro)) {
-                $this->Flash->success(__('The livro has been saved.'));
+                $this->Flash->success(__('O Livro foi salvo com sucesso.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The livro could not be saved. Please, try again.'));
+            $this->Flash->error(__('O Livro não pôde ser salvo. Por favor, tente novamente.'));
         }
         $autores = $this->Livros->Autores->find('list', ['limit' => 200]);
         $generos = $this->Livros->Generos->find('list', ['limit' => 200]);
@@ -104,9 +100,9 @@ class LivrosController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $livro = $this->Livros->get($id);
         if ($this->Livros->delete($livro)) {
-            $this->Flash->success(__('The livro has been deleted.'));
+            $this->Flash->success(__('O Livro foi excluído com sucesso.'));
         } else {
-            $this->Flash->error(__('The livro could not be deleted. Please, try again.'));
+            $this->Flash->error(__('O Livro não pôde ser excluído. Por favor, tente novamente.'));
         }
 
         return $this->redirect(['action' => 'index']);
