@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\ORM\TableRegistry;
 
 /**
  * Livros Controller
@@ -74,6 +75,7 @@ class LivrosController extends AppController
         $livro = $this->Livros->get($id, [
             'contain' => ['Generos']
         ]);
+        // $livro->modified=DboSource::expression('NOW()');
         if ($this->request->is(['patch', 'post', 'put'])) {
             $livro = $this->Livros->patchEntity($livro, $this->request->getData());
             if ($this->Livros->save($livro)) {
@@ -107,4 +109,37 @@ class LivrosController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function locar($id = null)
+    {
+        $livro = $this->Livros->get($id);
+        if ($livro->quantidade==$livro->qtde_locados) {
+            $this->Flash->success(__('{0} não está disponível no momento. Todas as {1} unidades foram locadas e ainda não foram devolvidas.', $livro->titulo, $livro->quantidade));
+            return $this->redirect(['action' => 'index']);       
+        }else{
+            $livro->qtde_locados = $livro->qtde_locados + 1;    
+            if ($this->Livros->save($livro)) {
+                $this->Flash->success(__('O livro foi locado com sucesso.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('O livro não pôde ser locado. Por favor, tente novamente.'));
+        }
+    }
+
+    public function devolver($id = null)
+    {
+        $livro = $this->Livros->get($id);
+        if ($livro->qtde_locados==0) {
+            $this->Flash->success(__('Não há livros locados para serem devolvidos.'));
+            return $this->redirect(['action' => 'index']);       
+        }else{
+            $livro->qtde_locados = $livro->qtde_locados - 1;    
+            if ($this->Livros->save($livro)) {
+                $this->Flash->success(__('O livro foi devolvido com sucesso.'));
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('O livro não pôde ser devolvido. Por favor, tente novamente.'));
+        }
+    }
+
 }

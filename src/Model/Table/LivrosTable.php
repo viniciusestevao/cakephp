@@ -79,6 +79,10 @@ class LivrosTable extends Table
             ->allowEmpty('quantidade');
 
         $validator
+            ->integer('qtde_locados')
+            ->allowEmpty('qtde_locados');
+
+        $validator
             ->integer('isbn')
             ->maxLength('isbn', 13)
             ->allowEmpty('isbn');

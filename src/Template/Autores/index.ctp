@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Autore[]|\Cake\Collection\CollectionInterface $autores
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Ações') ?></li>
         <li><br></li>
@@ -14,7 +14,7 @@
         <li><?= $this->Html->link(__('Usuários'), ['controller' => 'Users', 'action' => 'index']) ?> </li>    
     </ul>
 </nav>
-<div class="autores index large-9 medium-8 columns content">
+<div class="autores index large-10 medium-8 columns content">
     <h3><?= __('Autores') ?></h3>
     <table class="vertical-table">
         <tr>
@@ -26,8 +26,8 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th> 
-                <th scope="col"><?= $this->Paginator->sort('nome') ?></th>
+                <th scope="col" width="10%"><?= $this->Paginator->sort('id') ?></th> 
+                <th scope="col" width="30%"><?= $this->Paginator->sort('nome') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
                 <th scope="col" class="actions"><?= __('Ações') ?></th>

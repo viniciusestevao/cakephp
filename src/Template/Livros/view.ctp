@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Livro $livro
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Ações') ?></li>
         <li><br></li>   
@@ -14,7 +14,7 @@
         <li><?= $this->Html->link(__('Usuários'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
     </ul>
 </nav>
-<div class="livros view large-9 medium-8 columns content">
+<div class="livros view large-10 medium-8 columns content">
     <h3><?= h($livro->titulo) ?></h3>
     <table class="vertical-table">
         <tr>

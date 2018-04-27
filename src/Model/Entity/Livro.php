@@ -35,6 +35,7 @@ class Livro extends Entity
         'titulo' => true,
         'descricao' => true,
         'quantidade' => true,
+        'qtde_locados' => true,
         'isbn' => true,
         'created' => true,
         'modified' => true,

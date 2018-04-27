@@ -4,13 +4,13 @@
  * @var \App\Model\Entity\Role[]|\Cake\Collection\CollectionInterface $roles
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Role'), ['action' => 'add']) ?></li>
     </ul>
 </nav>
-<div class="roles index large-9 medium-8 columns content">
+<div class="roles index large-10 medium-8 columns content">
     <h3><?= __('Roles') ?></h3>
     <table cellpadding="0" cellspacing="0">
         <thead>

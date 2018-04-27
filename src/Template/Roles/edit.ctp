@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Role $role
  */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
+<nav class="large-2 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Form->postLink(
@@ -16,7 +16,7 @@
         <li><?= $this->Html->link(__('List Roles'), ['action' => 'index']) ?></li>
     </ul>
 </nav>
-<div class="roles form large-9 medium-8 columns content">
+<div class="roles form large-10 medium-8 columns content">
     <?= $this->Form->create($role) ?>
     <fieldset>
         <legend><?= __('Edit Role') ?></legend>
