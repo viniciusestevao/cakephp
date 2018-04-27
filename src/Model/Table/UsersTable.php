@@ -67,6 +67,7 @@ class UsersTable extends Table
             ->maxLength('password', 100)
             ->requirePresence('password', 'create')
             ->notEmpty('password');
+   
 
         return $validator;
     }

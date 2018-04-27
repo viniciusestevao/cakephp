@@ -8,21 +8,21 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Ações') ?></li>
         <li><br></li>   
-        <li><?= $this->Html->link(__('Consultar Livros'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Livro'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('Editar Livro'), ['action' => 'edit', $livro->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Excluir Livro'), ['action' => 'delete', $livro->id], ['confirm' => __('Você tem certeza que deseja excluir o livro {0} - {1}?', $livro->id, $livro->titulo)]) ?> </li>
-        <li><br></li>   
-        <li><?= $this->Html->link(__('Consultar Autores'), ['controller' => 'Autores', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Autor'), ['controller' => 'Autores', 'action' => 'add']) ?> </li>
-        <li><br></li>   
-        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['controller' => 'Generos', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Livros'), ['action' => 'index']) ?></li>         
+        <li><?= $this->Html->link(__('Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Usuários'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
     </ul>
 </nav>
 <div class="livros view large-9 medium-8 columns content">
     <h3><?= h($livro->titulo) ?></h3>
     <table class="vertical-table">
+        <tr>
+            <th scope="row">
+                <li><?= $this->Html->link(__('Editar'), ['action' => 'edit', $livro->id]) ?> </li>
+                <li><?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $livro->id], ['confirm' => __('Você tem certeza que deseja excluir livro {0} - {1}?', $livro->id, $livro->titulo)]) ?> </li>
+            </th>
+        </tr>         
         <tr>
             <th scope="row"><?= __('Id/Código') ?></th>
             <td><?= $this->Number->format($livro->id) ?></td>
@@ -61,10 +61,10 @@
         <?php if (!empty($livro->generos)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('id') ?></th>
-                <th scope="col"><?= __('descricao') ?></th>
-                <th scope="col"><?= __('created') ?></th>
-                <th scope="col"><?= __('modified') ?></th>
+                <th scope="col"><?= __('Id/Código') ?></th>
+                <th scope="col"><?= __('Descrição') ?></th>
+                <th scope="col"><?= __('Criado em') ?></th>
+                <th scope="col"><?= __('Modificado em') ?></th>
                 <th scope="col" class="actions"><?= __('Ações') ?></th>
             </tr>
             <?php foreach ($livro->generos as $genero): ?>

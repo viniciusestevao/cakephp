@@ -8,18 +8,21 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Ações') ?></li>
         <li><br></li>        
-        <li><?= $this->Html->link(__('Consultar Livros'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Livro'), ['action' => 'add']) ?></li>        
-        <li><br></li>        
-        <li><?= $this->Html->link(__('Consultar Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Autor'), ['controller' => 'Autores', 'action' => 'add']) ?></li>
-        <li><br></li>        
-        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['controller' => 'Generos', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Livros'), ['action' => 'index']) ?></li>         
+        <li><?= $this->Html->link(__('Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Usuários'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
     </ul>
 </nav>
 <div class="livros index large-9 medium-8 columns content">
     <h3><?= __('Livros') ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row">
+                <li><?= $this->Html->link(__('Novo'), ['action' => 'add']) ?></li>
+            </th>
+        </tr>  
+    </table> 
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>

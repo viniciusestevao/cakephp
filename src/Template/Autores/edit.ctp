@@ -8,19 +8,21 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Ações') ?></li>
         <li><br></li>
-        <li><?= $this->Html->link(__('Consultar Autores'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Autor'), ['action' => 'add']) ?></li>
-        <li><?= $this->Form->postLink(__('Excluir Autor'), ['action' => 'delete', $autore->id], ['confirm' => __('Você tem certeza que deseja excluir autor {0} - {1}?', $autore->id, $autore->nome)]) ?> </li>
-        <li><br></li>
-        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
-        <li><br></li>
-        <li><?= $this->Html->link(__('Consultar Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('Novo Livro'), ['controller' => 'Livros', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>         
+        <li><?= $this->Html->link(__('Autores'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Usuários'), ['controller' => 'Users', 'action' => 'index']) ?> </li>   
     </ul>
 </nav>
 <div class="autores form large-9 medium-8 columns content">
     <?= $this->Form->create($autore) ?>
+        <table class="vertical-table">
+            <tr>
+                <th scope="row">
+                    <li><?= $this->Form->postLink(__('Excluir'), ['action' => 'delete', $autore->id], ['confirm' => __('Você tem certeza que deseja excluir autor {0} - {1}?', $autore->id, $autore->nome)]) ?> </li>
+                </th>
+            </tr>
+        </table>
     <fieldset>
         <legend><?= __('Editar Autor') ?></legend>
         <?php

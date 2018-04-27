@@ -8,14 +8,10 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Ações') ?></li>
         <li><br></li>   
-        <li><?= $this->Html->link(__('Consultar Livros'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Livro'), ['action' => 'add']) ?> </li>
-        <li><br></li>   
-        <li><?= $this->Html->link(__('Consultar Autores'), ['controller' => 'Autores', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Autor'), ['controller' => 'Autores', 'action' => 'add']) ?> </li>
-        <li><br></li>   
-        <li><?= $this->Html->link(__('Consultar Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('Novo Gênero Literário'), ['controller' => 'Generos', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('Livros'), ['action' => 'index']) ?></li>         
+        <li><?= $this->Html->link(__('Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Usuários'), ['controller' => 'Users', 'action' => 'index']) ?> </li>
     </ul>
 </nav>
 <div class="livros form large-9 medium-8 columns content">

@@ -6,12 +6,23 @@
 ?>
 <nav class="large-3 medium-4 columns" id="actions-sidebar">
     <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?></li>
+        <li class="heading"><?= __('Ações') ?></li>
+        <li><br></li>        
+        <li><?= $this->Html->link(__('Livros'), ['controller' => 'Livros', 'action' => 'index']) ?></li>         
+        <li><?= $this->Html->link(__('Autores'), ['controller' => 'Autores', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Gêneros Literários'), ['controller' => 'Generos', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Usuários'), ['action' => 'index']) ?> </li> 
     </ul>
 </nav>
 <div class="users index large-9 medium-8 columns content">
     <h3><?= __('Users') ?></h3>
+    <table class="vertical-table">
+        <tr>
+            <th scope="row">
+                <li><?= $this->Html->link(__('Novo'), ['action' => 'add']) ?></li>
+            </th>
+        </tr>  
+    </table> 
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
