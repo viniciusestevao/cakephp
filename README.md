@@ -1,51 +1,23 @@
-# CakePHP Application Skeleton
+# Biblioteca em CakePHP
 
-[![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
-[![Total Downloads](https://img.shields.io/packagist/dt/cakephp/app.svg?style=flat-square)](https://packagist.org/packages/cakephp/app)
+## Introdução
 
-A skeleton for creating applications with [CakePHP](https://cakephp.org) 3.x.
+Essa aplicação foi desenvolvida no intuito de demonstrar conhecimentos básicos de programação, aplicando o Framework CakePHP 3.6.
 
-The framework source code can be found here: [cakephp/cakephp](https://github.com/cakephp/cakephp).
+## Acesso
 
-## Installation
+O programa é dotado de um controle de acesso através de Login, mas não se preocupe, pois foi disponibilizada uma área onde você pode se cadastrar tranquilamente, criando seu próprio usuário. 
 
-1. Download [Composer](https://getcomposer.org/doc/00-intro.md) or update `composer self-update`.
-2. Run `php composer.phar create-project --prefer-dist cakephp/app [app_name]`.
+## Recursos
 
-If Composer is installed globally, run
+Através dessa aplicação, você poderá:
 
-```bash
-composer create-project --prefer-dist cakephp/app
-```
+1. Elaborar uma lista de Autores;
+2. Gerenciar os Gêneros Literários que considerar importantes;
+3. Gerenciar os Livros de sua Biblioteca, mantendo uma relação clara com os cadastros de Autores e Gêneros Literários;
+4. Administrar os usuários de sua aplicação;
 
-In case you want to use a custom app dir name (e.g. `/myapp/`):
+## Observações
 
-```bash
-composer create-project --prefer-dist cakephp/app myapp
-```
-
-You can now either use your machine's webserver to view the default home page, or start
-up the built-in webserver with:
-
-```bash
-bin/cake server -p 8765
-```
-
-Then visit `http://localhost:8765` to see the welcome page.
-
-## Update
-
-Since this skeleton is a starting point for your application and various files
-would have been modified as per your needs, there isn't a way to provide
-automated upgrades, so you have to do any updates manually.
-
-## Configuration
-
-Read and edit `config/app.php` and setup the `'Datasources'` and any other
-configuration relevant for your application.
-
-## Layout
-
-The app skeleton uses a subset of [Foundation](http://foundation.zurb.com/) (v5) CSS
-framework by default. You can, however, replace it with any other library or
-custom styles.
+1. This was the first time I worked with CakePHP Framework;
+2. This application is dedicated especially to Jefferson M., I hope you like it.
