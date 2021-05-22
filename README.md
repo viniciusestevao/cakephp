@@ -20,4 +20,3 @@ Através dessa aplicação, você poderá:
 ## Observações
 
 1. This was the first time I worked with CakePHP Framework;
-2. This application is dedicated especially to Jefferson M., I hope you like it.
